@@ -1,0 +1,24 @@
+﻿@using Employee.Core.Application.Dtos;
+@model EmployeeDto
+
+<div class="row mt-5">
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header bg-danger text-light">
+                <h4 class="text-center">Está seguro que desea desvincular a este Empleado?</h4>
+            </div>
+            <div class="card-body bg-light">
+                <form method="post" asp-controller="Home" asp-action="Disassociation">
+                    <div class="form-group">
+                    </div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger me-3">Desvincular</button>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-success">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

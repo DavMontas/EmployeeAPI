@@ -1,0 +1,107 @@
+﻿@using Employee.Core.Application.Dtos;
+
+@model EmployeeDto
+@{
+
+    bool editMode = Model.Id == 0 ? false : true;
+}
+
+<div class="row">
+    <div class="col-5 mx-auto">
+        <div class="card shadow bg-light">
+            <div class="card-body">
+                <form asp-controller="Home" asp-action=@(editMode ? "Update" : "Add") method="post" class="row gap-3 my-3 text-center" enctype="multipart/form-data">
+                    <div class="text-center my-2">
+                        <h3 class="text-muted w-100 m-auto text-center">
+                            @(editMode ? $"Modifica datos de empleado" : "Agregar nuevo empleado")
+                        </h3>
+                    </div>
+
+                    <section class="col-6 mx-auto mt-2 ">
+
+                        <div class="form-floating mb-3">
+                            <label asp-for="Nombre"> Nombre</label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Nombre" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="form-floating mb-3">
+                            <label asp-for="Apellido" class="form-label">Apellido</label>
+                            <input asp-for="Apellido" class="form-control" placeholder="Apellido" />
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Fotografia" class="form-label text-muted fw-bold">Selecciona una imagen</label>
+                            <input asp-for="Fotografia" class="form-control">
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <label asp-for="FechaNacimiento"> Introduzca su fecha de nacimiento</label>
+
+                                    <input asp-for="FechaNacimiento" type='date' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <label asp-for="Puesto" class="form-label">Puesto</label>
+                            <input asp-for="Puesto" class="form-control" placeholder="Puesto" />
+                            <span asp-validation-for="Puesto" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <label asp-for="Direccion" class="form-label">Direccion</label>
+                            <input asp-for="Direccion" class="form-control" placeholder="Direccion" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <label asp-for="Telefono" class="form-label">Telefono</label>
+                            <input asp-for="Telefono" class="form-control" placeholder="Telefono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <label asp-for="Correo" class="form-label">Correo</label>
+                            <input asp-for="Correo" class="form-control" placeholder="Correo" />
+                            <span asp-validation-for="Correo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <label asp-for="FechaContratacion"> Introduzca la fecha de contratacion</label>
+
+                                    <input asp-for="FechaContratacion" type='date' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                    <span asp-validation-for="FechaContratacion" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <input type="hidden" asp-for="Id" name="Id" value="@Model.Id" />
+
+                    <div class="col-8 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mt-2">Guardar</button>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary w-100 mt-2">Volver atrás</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
